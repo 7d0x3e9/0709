@@ -20,10 +20,10 @@ jobs:
         id: display-version
       - name: Save output
         run: |
-          echo "${{ steps.display-version.outputs.stdout }}" > output.txt
+          echo "${{ steps.display-version.outputs.stdout }}" > upload-artifact-${{ matrix.python-version }}.txt
           cat output.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: python-output
-          path: output.txt
+          path: upload-artifact-${{ matrix.python-version }}.txt
