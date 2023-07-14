@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -20,7 +19,9 @@ jobs:
         run: python -c "import sys; print(sys.version)"
         id: display-version
       - name: Save output
-        run: echo "${{ steps.display-version.outputs.stdout }}" > output.txt
+        run: |
+          echo "${{ steps.display-version.outputs.stdout }}" > output.txt
+          cat output.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
