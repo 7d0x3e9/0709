@@ -21,7 +21,7 @@ jobs:
       - name: Save output
         run: |
           echo "${{ steps.display-version.outputs.stdout }}" > upload-artifact-${{ matrix.python-version }}.txt
-          cat output.txt
+      
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
