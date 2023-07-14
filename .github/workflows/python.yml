@@ -15,12 +15,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
-        id: display-version
       - name: Save output
         run: |
-          echo "${{ steps.display-version.outputs.stdout }}" > upload-artifact-${{ matrix.python-version }}.txt
+         python -c "import sys; print(sys.version)" > upload-artifact-${{ matrix.python-version }}.txt
       
       - name: Upload artifact
         uses: actions/upload-artifact@v3
