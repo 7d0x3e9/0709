@@ -23,7 +23,7 @@ jobs:
           echo "${{ steps.display-version.outputs.stdout }}" > output.txt
           cat output.txt
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-output
           path: output.txt
